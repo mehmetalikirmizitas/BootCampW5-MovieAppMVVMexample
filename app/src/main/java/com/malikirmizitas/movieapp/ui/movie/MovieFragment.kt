@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseFragment
 import com.malikirmizitas.movieapp.databinding.FragmentMovieBinding
+import com.malikirmizitas.movieapp.ui.movie.adapter.MovieAdapter
 
 class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
     override var viewModel: MovieViewModel? = null
@@ -15,6 +16,7 @@ class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
         viewModel?.movies?.observe(this, {
             dataBinding.movies = it
             dataBinding.executePendingBindings()
+            dataBinding.moviesRecyclerView.adapter = MovieAdapter(it.getList())
         })
     }
 

@@ -4,21 +4,23 @@ import android.animation.Animator
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import com.malikirmizitas.movieapp.base.BaseFragment
-import com.malikirmizitas.movieapp.databinding.FragmentSplashBinding
+import androidx.fragment.app.Fragment
+import com.airbnb.lottie.LottieAnimationView
+import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.utils.toastShort
 
-class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding::inflate) {
+class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lottieListener()
+        //lottieListener()
     }
 
     private fun lottieListener() {
-        binding.splashAnim.addAnimatorListener(object: Animator.AnimatorListener{
+        val lottie: LottieAnimationView = view?.findViewById(R.id.splash_anim)!!
+        lottie.addAnimatorListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator?) {
-                Log.v("Animation","Started")
+                Log.v("Animation", "Started")
             }
 
             override fun onAnimationEnd(animation: Animator?) {
@@ -27,11 +29,11 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
             }
 
             override fun onAnimationCancel(animation: Animator?) {
-                Log.v("Animation","Canceled")
+                Log.v("Animation", "Canceled")
             }
 
             override fun onAnimationRepeat(animation: Animator?) {
-                Log.v("Animation","Repeated")
+                Log.v("Animation", "Repeated")
             }
         })
     }

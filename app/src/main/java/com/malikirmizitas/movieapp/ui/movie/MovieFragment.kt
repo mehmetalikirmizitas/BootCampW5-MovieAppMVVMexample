@@ -26,4 +26,6 @@ class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
     override fun prepareViewModel() {
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
     }
+
+
 }

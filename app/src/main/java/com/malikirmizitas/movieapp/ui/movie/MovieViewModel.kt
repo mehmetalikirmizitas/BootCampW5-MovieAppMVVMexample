@@ -14,7 +14,6 @@ class MovieViewModel : ViewModel() {
 
     init {
         apiRepository.getAllMovies(lang, page)
-
         movies.addSource(apiRepository.onMoviesFetched) {
             movies.value = MovieStateModel(it)
         }

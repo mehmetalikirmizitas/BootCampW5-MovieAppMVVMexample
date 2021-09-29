@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/movieFragment">
+    app:startDestination="@id/tabLayoutControllerFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -11,12 +11,25 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
-            android:id="@+id/action_splashFragment_to_movieFragment"
-            app:destination="@id/movieFragment" />
+            android:id="@+id/action_splashFragment_to_tabLayoutControllerFragment"
+            app:destination="@id/tabLayoutControllerFragment" />
     </fragment>
     <fragment
-        android:id="@+id/movieFragment"
-        tools:layout="@layout/fragment_movie"
-        android:name="com.malikirmizitas.movieapp.ui.movie.MovieFragment"
-        android:label="MovieFragment" />
+        android:id="@+id/movieDetailFragment"
+        tools:layout="@layout/fragment_movie_detail"
+        android:name="com.malikirmizitas.movieapp.ui.moviedetail.MovieDetailFragment"
+        android:label="MovieDetailFragment" >
+        <argument
+            android:name="movie_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/tabLayoutControllerFragment"
+        android:name="com.malikirmizitas.movieapp.ui.tablayout.TabLayoutControllerFragment"
+        android:label="fragment_tab_layout_controller"
+        tools:layout="@layout/fragment_tab_layout_controller" >
+        <action
+            android:id="@+id/action_tabLayoutControllerFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
 </navigation>

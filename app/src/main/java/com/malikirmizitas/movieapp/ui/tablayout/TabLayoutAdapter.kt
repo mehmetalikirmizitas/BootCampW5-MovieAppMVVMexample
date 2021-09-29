@@ -1,4 +1,4 @@
-package com.malikirmizitas.movieapp.ui
+package com.malikirmizitas.movieapp.ui.tablayout
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -24,5 +24,4 @@ class TabLayoutAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getPageTitle(position: Int): CharSequence {
         return titleList[position]
     }
-
 }

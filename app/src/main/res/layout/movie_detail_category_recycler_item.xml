@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="category"
+            type="com.malikirmizitas.movieapp.data.entity.detail.Genre" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/default_card_view_height_small"
+        android:layout_marginVertical="@dimen/default_padding_xxsmall"
+        android:layout_marginEnd="@dimen/default_margin_medium"
+        android:background="@drawable/rounded_card_view"
+        app:cardCornerRadius="@dimen/card_view_default_radius_small">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/default_padding_medium"
+            android:paddingVertical="@dimen/default_padding_xxsmall"
+            tools:text="Action" />
+
+    </androidx.cardview.widget.CardView>
+</layout>

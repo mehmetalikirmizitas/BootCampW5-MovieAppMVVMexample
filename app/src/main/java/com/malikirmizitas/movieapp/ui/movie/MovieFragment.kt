@@ -27,5 +27,4 @@ class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
     }
 
-
 }

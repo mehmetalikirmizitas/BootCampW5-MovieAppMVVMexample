@@ -9,10 +9,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import com.malikirmizitas.movieapp.utils.toastLong
 
 
-abstract class BaseFragment<VM : ViewModel?,DB : ViewDataBinding> : Fragment(),IBaseFragment{
+abstract class BaseFragment<VM : ViewModel?, DB : ViewDataBinding> : Fragment(), IBaseFragment {
 
     abstract var viewModel: VM?
     protected lateinit var dataBinding: DB
@@ -23,7 +22,7 @@ abstract class BaseFragment<VM : ViewModel?,DB : ViewDataBinding> : Fragment(),I
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = DataBindingUtil.inflate(inflater,getLayoutID(),container,false)
+        dataBinding = DataBindingUtil.inflate(inflater, getLayoutID(), container, false)
         return dataBinding.root
     }
 
@@ -32,8 +31,9 @@ abstract class BaseFragment<VM : ViewModel?,DB : ViewDataBinding> : Fragment(),I
         prepareView()
         observeLiveData()
 
-        toastLong(shouldCheckInternetConnection().toString())
+        //toastLong(shouldCheckInternetConnection().toString())
     }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         prepareViewModel()

@@ -11,7 +11,7 @@ object ImageBindingAdapter{
     @BindingAdapter("imageUrl")
     fun setUrl(imageView: AppCompatImageView,imageUrl : String?){
         Glide.with(imageView.context)
-            .load("https://image.tmdb.org/t/p/w500${imageUrl}")
+            .load(BASE_PHOTO_PATH+"$imageUrl")
             .error(R.drawable.image_not_found)
             .placeholder(R.drawable.image_not_found)
             .into(imageView)

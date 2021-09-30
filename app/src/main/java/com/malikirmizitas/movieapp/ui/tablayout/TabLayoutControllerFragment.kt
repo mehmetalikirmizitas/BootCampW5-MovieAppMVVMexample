@@ -13,7 +13,7 @@ class TabLayoutControllerFragment : Fragment() {
     private var _binding: FragmentTabLayoutControllerBinding? = null
 
     // This property is only valid between onCreateView and
-// onDestroyView.
+    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,6 +24,10 @@ class TabLayoutControllerFragment : Fragment() {
         _binding = FragmentTabLayoutControllerBinding.inflate(inflater, container, false)
         val view = binding.root
 
+
+        /**
+         * Add TabLayout's tab
+         */
         val adapter = TabLayoutAdapter(childFragmentManager)
         adapter.addFragment(MovieFragment(), "Movies")
         adapter.addFragment(MovieFragment(), "Favourites")

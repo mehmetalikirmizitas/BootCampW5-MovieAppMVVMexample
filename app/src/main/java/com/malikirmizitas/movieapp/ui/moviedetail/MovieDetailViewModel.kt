@@ -9,6 +9,11 @@ class MovieDetailViewModel : ViewModel() {
     val details = MediatorLiveData<MovieDetailViewStateModel>()
     private val apiRepository = ApiRepository()
 
+
+    /**
+     * This function is one of bridge between api and view
+     * Sending detail's values to view
+     */
     fun getDetail(id: Int) {
         apiRepository.getMovieDetailById(id)
         details.addSource(apiRepository.onDetailFetched) {

@@ -39,6 +39,8 @@ class MovieAdapter(private val movieList: List<Result>) : RecyclerView.Adapter<M
             binding.movies = movie
             binding.executePendingBindings()
 
+
+            //click listeneri fragmentta yaz
             binding.movieCardView.setOnClickListener {
                 val action =
                     TabLayoutControllerFragmentDirections.actionTabLayoutControllerFragmentToMovieDetailFragment(

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.malikirmizitas.movieapp.databinding.FragmentTabLayoutControllerBinding
+import com.malikirmizitas.movieapp.ui.favourites.FavouritesFragment
 import com.malikirmizitas.movieapp.ui.movie.MovieFragment
 
 class TabLayoutControllerFragment : Fragment() {
@@ -30,7 +31,7 @@ class TabLayoutControllerFragment : Fragment() {
          */
         val adapter = TabLayoutAdapter(childFragmentManager)
         adapter.addFragment(MovieFragment(), "Movies")
-        adapter.addFragment(MovieFragment(), "Favourites")
+        adapter.addFragment(FavouritesFragment(), "Favourites")
         binding.viewPager.adapter = adapter
         binding.tabs.setupWithViewPager(binding.viewPager)
         return view

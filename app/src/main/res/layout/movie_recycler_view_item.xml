@@ -48,19 +48,28 @@
                 app:layout_constraintVertical_chainStyle="packed"
                 tools:text="Esaretin bedeli" />
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/movieRating"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movieTitle"
+                android:id="@+id/movieRatingStar"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:src="@drawable/ic_rating_star"/>
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/movieRating"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="@dimen/default_margin_xsmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@{String.valueOf(movies.voteAverage)}"
                 android:textColor="@color/movies_vote_average_color"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/movieRatingStar"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.10"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movieTitle"
+                app:layout_constraintStart_toEndOf="@id/movieRatingStar"
+                app:layout_constraintTop_toTopOf="@id/movieRatingStar"
                 tools:text="6.8" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

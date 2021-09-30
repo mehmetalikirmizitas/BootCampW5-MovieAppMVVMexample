@@ -4,9 +4,9 @@
 
     <data>
 
-        <!--<variable
-            name="favourite_movies"
-            type="" />-->
+        <variable
+            name="favouriteMovie"
+            type="com.malikirmizitas.movieapp.data.entity.MovieRoom" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,8 +22,8 @@
             app:layout_constraintBottom_toTopOf="@id/favouriteMoviesVoteAverage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.7"
-            tools:text="Movie Name" />
+            android:text="@{favouriteMovie.title}"
+            app:layout_constraintWidth_percent="0.7" />
 
         <TextView
             android:id="@+id/favouriteMoviesVoteAverage"
@@ -35,6 +35,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/favouriteMoviesTitle"
+            android:text="@{String.valueOf(favouriteMovie.voteAverage)}"
             tools:text="6.8" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -43,6 +44,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            imageUrl="@{favouriteMovie.posterPath}"
             tools:src="@drawable/ic_launcher_background" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

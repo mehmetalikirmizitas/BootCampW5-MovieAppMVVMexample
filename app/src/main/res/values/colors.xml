@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="addFavouriteCardColor">#FE6D8E</color>
     <color name="movies_vote_average_color">#E11919</color>
+    <color name="background">#323030</color>
 </resources>

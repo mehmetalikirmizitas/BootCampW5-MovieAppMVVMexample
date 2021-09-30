@@ -1,57 +1,61 @@
 package com.malikirmizitas.movieapp.data.entity.detail
 
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "favourites")
 data class Movie(
     @SerializedName("adult")
-    val adult: Boolean,
+    @ColumnInfo(name = "adult") val adult: Boolean,
     @SerializedName("backdrop_path")
-    val backdropPath: String,
+    @ColumnInfo(name = "backdropPath") val backdropPath: String,
     @SerializedName("belongs_to_collection")
-    val belongsToCollection: BelongsToCollection,
+    @ColumnInfo(name = "belongsToCollection") val belongsToCollection: BelongsToCollection,
     @SerializedName("budget")
-    val budget: Int,
+    @ColumnInfo(name = "budget") val budget: Int,
     @SerializedName("genres")
-    val genres: List<Genre>,
+    @ColumnInfo(name = "genres") val genres: List<Genre>,
     @SerializedName("homepage")
-    val homepage: String,
+    @ColumnInfo(name = "homepage") val homepage: String,
     @SerializedName("id")
-    val id: Int,
+    @PrimaryKey @ColumnInfo(name = "id") val id: Int,
     @SerializedName("imdb_id")
-    val imdbId: String,
+    @ColumnInfo(name = "imdbId")  val imdbId: String,
     @SerializedName("original_language")
-    val originalLanguage: String,
+    @ColumnInfo(name = "originalLanguage") val originalLanguage: String,
     @SerializedName("original_title")
-    val originalTitle: String,
+    @ColumnInfo(name = "originalTitle") val originalTitle: String,
     @SerializedName("overview")
-    val overview: String,
+    @ColumnInfo(name = "overview") val overview: String,
     @SerializedName("popularity")
-    val popularity: Double,
+    @ColumnInfo(name = "popularity") val popularity: Double,
     @SerializedName("poster_path")
-    val posterPath: String,
+    @ColumnInfo(name = "posterPath") val posterPath: String,
     @SerializedName("production_companies")
-    val productionCompanies: List<ProductionCompany>,
+    @ColumnInfo(name = "productionCompanies")  val productionCompanies: List<ProductionCompany>,
     @SerializedName("production_countries")
-    val productionCountries: List<ProductionCountry>,
+    @ColumnInfo(name = "productionCountries") val productionCountries: List<ProductionCountry>,
     @SerializedName("release_date")
-    val releaseDate: String,
+    @ColumnInfo(name = "releaseDate") val releaseDate: String,
     @SerializedName("revenue")
-    val revenue: Int,
+    @ColumnInfo(name = "revenue") val revenue: Int,
     @SerializedName("runtime")
-    val runtime: Int,
+    @ColumnInfo(name = "runtime") val runtime: Int,
     @SerializedName("spoken_languages")
-    val spokenLanguages: List<SpokenLanguage>,
+    @ColumnInfo(name = "spokenLanguages") val spokenLanguages: List<SpokenLanguage>,
     @SerializedName("status")
-    val status: String,
+    @ColumnInfo(name = "status") val status: String,
     @SerializedName("tagline")
-    val tagline: String,
+    @ColumnInfo(name = "tagline") val tagline: String,
     @SerializedName("title")
-    val title: String,
+    @ColumnInfo(name = "title") val title: String,
     @SerializedName("video")
-    val video: Boolean,
+    @ColumnInfo(name = "video") val video: Boolean,
     @SerializedName("vote_average")
-    val voteAverage: Double,
+    @ColumnInfo(name = "voteAverage") val voteAverage: Double,
     @SerializedName("vote_count")
-    val voteCount: Int
+    @ColumnInfo(name = "voteCount") val voteCount: Int
 )

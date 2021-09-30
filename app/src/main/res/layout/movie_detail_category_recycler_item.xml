@@ -22,6 +22,7 @@
             android:id="@+id/categoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{category.name}"
             android:paddingHorizontal="@dimen/default_padding_medium"
             android:paddingVertical="@dimen/default_padding_xxsmall"
             tools:text="Action" />

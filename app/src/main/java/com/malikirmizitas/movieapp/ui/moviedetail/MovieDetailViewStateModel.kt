@@ -1,4 +1,4 @@
-package com.malikirmizitas.movieapp.data.entity
+package com.malikirmizitas.movieapp.ui.moviedetail
 
 import com.malikirmizitas.movieapp.data.entity.detail.Movie
 

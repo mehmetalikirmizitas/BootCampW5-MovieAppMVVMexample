@@ -1,7 +1,6 @@
 package com.malikirmizitas.movieapp.ui.moviedetail
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +24,7 @@ class MovieDetailCategoryAdapter() :
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = categories[position]
 
-        holder.binding.categoryName.text = category.name
+        holder.init(category)
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -37,7 +36,11 @@ class MovieDetailCategoryAdapter() :
     override fun getItemCount() = categories.size
 
     inner class CategoryViewHolder(val binding: MovieDetailCategoryRecyclerItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+        RecyclerView.ViewHolder(binding.root) {
+        fun init(category : Genre) {
+            binding.category = category
+        }
+    }
 }
 
 

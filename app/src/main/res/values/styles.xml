@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.TabBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+    <style name="Theme.TabBar.PopupOverlay" parent="Theme.AppCompat.NoActionBar" />
+
+    <style name="expandedBarTextStyle" parent="Theme.MovieApp">
+        <item name="android:textSize">0dp</item>
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
 </resources>

@@ -1,6 +1,5 @@
 package com.malikirmizitas.movieapp.ui.moviedetail
 
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.malikirmizitas.movieapp.R
@@ -18,18 +17,15 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
 
     override fun observeLiveData() {
         viewModel?.getDetail(args.movieId)
-
         viewModel?.details?.observe(this, {
             dataBinding.movie = it
             dataBinding.executePendingBindings()
-
-            Log.e("Titiz",it.getDetail().genres.size.toString())
             adapter.setCategories(it.getDetail().genres)
-            dataBinding.detailCategoryRecyclerView.adapter = adapter
         })
     }
 
     override fun prepareView() {
+        dataBinding.detailCategoryRecyclerView.adapter = adapter
     }
 
     override fun prepareViewModel() {

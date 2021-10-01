@@ -17,7 +17,6 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
     private val args: MovieDetailFragmentArgs by navArgs()
 
     override fun observeLiveData() {
-        viewModel?.getDetail(args.movieId)
         viewModel?.details?.observe(this, {
             dataBinding.movie = it
             dataBinding.executePendingBindings()
@@ -35,6 +34,9 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
     }
 
     override fun prepareViewModel() {
-        viewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            viewModelFactory { MovieDetailViewModel(arguments?.getInt("movieId")!!) }
+        ).get(MovieDetailViewModel::class.java)
     }
 }

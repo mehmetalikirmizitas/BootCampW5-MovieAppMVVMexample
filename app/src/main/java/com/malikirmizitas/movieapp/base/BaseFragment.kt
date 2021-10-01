@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.malikirmizitas.movieapp.R
 
 /**
@@ -53,6 +54,12 @@ abstract class BaseFragment<VM : ViewModel?, DB : ViewDataBinding> : Fragment(),
             ContextCompat.getColor(requireContext(), getStatusBarColor())
     }
 
+    protected inline fun <VM : ViewModel> viewModelFactory(crossinline f: () -> VM) =
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(aClass: Class<T>): T = f() as T
+        }
+
+
     override fun getStatusBarColor() = R.color.white
 
     abstract fun getLayoutID(): Int
@@ -60,5 +67,6 @@ abstract class BaseFragment<VM : ViewModel?, DB : ViewDataBinding> : Fragment(),
     abstract fun prepareView()
     abstract fun prepareViewModel()
     override fun shouldCheckInternetConnection() = true
+
 
 }

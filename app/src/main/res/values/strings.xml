@@ -4,4 +4,8 @@
     <string name="favourites">Favourites</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="overview">Overview</string>
+    <string name="movie_details">Movie Details</string>
+    <string name="release_year">Release Year:</string>
+    <string name="pg">PG:</string>
+    <string name="duration">Duration(min):</string>
 </resources>

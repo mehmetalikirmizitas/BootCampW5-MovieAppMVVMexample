@@ -1,5 +1,6 @@
 package com.malikirmizitas.movieapp.ui.favourites
 
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseFragment
@@ -12,12 +13,14 @@ class FavouritesFragment : BaseFragment<FavouritesMovieViewModel, FragmentFavour
     override fun getLayoutID() = R.layout.fragment_favourites
 
     override fun observeLiveData() {
+        Log.e("size is : ","${viewModel?.allFavourites?.size}")
         viewModel?.getAllFavourites(requireContext())
+        dataBinding.FavouriteMoviesRecyclerView.adapter =
+            FavouritesMovieListAdapter(viewModel?.allFavourites!!)
     }
 
     override fun prepareView() {
-        dataBinding.FavouriteMoviesRecyclerView.adapter =
-            FavouritesMovieListAdapter(viewModel?.allFavourites!!)
+
     }
 
     override fun prepareViewModel() {

@@ -7,7 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="addFavouriteCardColor">#FE6D8E</color>
+    <color name="unFavouriteCardColor">#FE6D8E</color>
+    <color name="FavouriteCardColor">#4CAF50</color>
     <color name="movies_vote_average_color">#E11919</color>
     <color name="background">#323030</color>
 </resources>

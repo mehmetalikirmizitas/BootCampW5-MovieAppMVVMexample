@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.malikirmizitas.movieapp.data.entity.MovieRoom
-import com.malikirmizitas.movieapp.data.entity.detail.Movie
 
 
 @Database(entities = [MovieRoom::class], version = 1)
@@ -20,7 +19,7 @@ abstract class RoomDB : RoomDatabase() {
         @TypeConverters
         fun getMovieDatabase(context: Context): RoomDB? {
             if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder<RoomDB>(
+                INSTANCE = Room.databaseBuilder(
                     context.applicationContext,
                     RoomDB::class.java,
                     "MovieDB"

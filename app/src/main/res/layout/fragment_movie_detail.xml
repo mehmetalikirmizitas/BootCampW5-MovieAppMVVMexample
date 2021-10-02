@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="movie"
             type="com.malikirmizitas.movieapp.ui.moviedetail.MovieDetailViewStateModel" />
@@ -16,35 +18,38 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/collapsingToolBar"
                 app:expandedTitleTextAppearance="@style/expandedBarTextStyle"
-                app:title="@string/movie_details"
-                app:layout_scrollFlags="snap|scroll|exitUntilCollapsed">
+                app:layout_scrollFlags="snap|scroll|exitUntilCollapsed"
+                app:title="@string/movie_details">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                     <androidx.appcompat.widget.AppCompatImageView
+                        imageUrl="@{movie.detail.posterPath}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:src="@drawable/ic_launcher_background"
-                        imageUrl="@{movie.detail.posterPath}"/>
+                        tools:src="@drawable/ic_launcher_background" />
+
                     <com.airbnb.lottie.LottieAnimationView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
-                        app:lottie_rawRes="@raw/arrow_down_bounce"
                         android:layout_marginBottom="?attr/actionBarSize"
+                        app:lottie_autoPlay="true"
                         app:lottie_loop="true"
-                        app:lottie_autoPlay="true"/>
+                        app:lottie_rawRes="@raw/arrow_down_bounce" />
                 </LinearLayout>
+
                 <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize" />
@@ -53,10 +58,10 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
             android:id="@+id/nestedScrollView"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -80,172 +85,162 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/movieDetailImage"
+                    imageUrl="@{movie.detail.posterPath}"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
-                    android:scaleType="fitCenter"
                     android:layout_marginTop="@dimen/default_margin_medium"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:scaleType="fitCenter"
                     app:layout_constraintStart_toStartOf="@id/guidelineStart"
-                    imageUrl="@{movie.detail.posterPath}"
-                    android:id="@+id/movieDetailImage"
-                    tools:src="@drawable/ic_launcher_background"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/ic_launcher_background" />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ratingStar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_rating_star"
-                    android:id="@+id/ratingStar"
-                    app:layout_constraintTop_toTopOf="@id/movieDetailImage"
                     app:layout_constraintBottom_toBottomOf="@id/movieDetailImage"
                     app:layout_constraintEnd_toStartOf="@id/movieRatingPoint"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@id/movieDetailImage"/>
+                    app:layout_constraintStart_toEndOf="@id/movieDetailImage"
+                    app:layout_constraintTop_toTopOf="@id/movieDetailImage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/movieRatingPoint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/ratingStar"
-                    app:layout_constraintBottom_toBottomOf="@id/ratingStar"
-                    app:layout_constraintEnd_toStartOf="@id/favouriteCard"
-                    android:id="@+id/movieRatingPoint"
-                    android:textSize="@dimen/default_text_size_medium"
                     android:text="@{String.valueOf(movie.detail.voteAverage)}"
-                    tools:text="7.0"
-                    app:layout_constraintStart_toEndOf="@id/ratingStar"/>
-
+                    android:textSize="@dimen/default_text_size_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/ratingStar"
+                    app:layout_constraintEnd_toStartOf="@id/addFavouriteImageView"
+                    app:layout_constraintStart_toEndOf="@id/ratingStar"
+                    app:layout_constraintTop_toTopOf="@id/ratingStar"
+                    tools:text="7.0" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/movieTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/guidelineStart"
-                    app:layout_constraintEnd_toStartOf="@+id/favouriteCard"
-                    tools:text="Movie Title"
-                    android:text="@{movie.detail.title}"
-                    android:id="@+id/movieTitle"
-                    app:layout_constraintTop_toBottomOf="@id/movieDetailImage"
                     android:layout_marginTop="@dimen/default_margin_medium"
-                    android:textSize="@dimen/default_text_size_large"/>
+                    android:text="@{movie.detail.title}"
+                    android:textSize="@dimen/default_text_size_large"
+                    app:layout_constraintEnd_toStartOf="@+id/addFavouriteImageView"
+                    app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@id/movieDetailImage"
+                    tools:text="Movie Title" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/releaseYearText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_margin_small"
+                    android:text="@string/release_year"
                     android:textSize="@dimen/default_text_size_medium"
                     app:layout_constraintStart_toStartOf="@id/guidelineStart"
-                    app:layout_constraintTop_toBottomOf="@id/movieTitle"
-                    android:id="@+id/releaseYearText"
-                    android:text="@string/release_year"/>
+                    app:layout_constraintTop_toBottomOf="@id/movieTitle" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/movieYear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/default_text_size_small"
-                    android:id="@+id/movieYear"
                     android:text="@{movie.detail.releaseDate}"
-                    tools:text="2019"
+                    android:textSize="@dimen/default_text_size_small"
                     app:layout_constraintBottom_toBottomOf="@id/releaseYearText"
                     app:layout_constraintStart_toStartOf="@id/movieLength"
-                    app:layout_constraintTop_toTopOf="@+id/releaseYearText" />
+                    app:layout_constraintTop_toTopOf="@+id/releaseYearText"
+                    tools:text="2019" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/default_text_size_medium"
-                    android:layout_marginTop="@dimen/default_margin_small"
-                    app:layout_constraintStart_toStartOf="@id/guidelineStart"
-                    app:layout_constraintTop_toBottomOf="@id/releaseYearText"
                     android:id="@+id/PGText"
-                    android:text="@string/pg"/>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/default_text_size_small"
-                    tools:text="PG-13"
-                    android:text="@{movie.isAdult()}"
-                    android:id="@+id/PG"
-                    app:layout_constraintStart_toStartOf="@id/movieLength"
-                    app:layout_constraintBottom_toBottomOf="@id/PGText"
-                    app:layout_constraintTop_toTopOf="@id/PGText" />
-
-                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_margin_small"
+                    android:text="@string/pg"
                     android:textSize="@dimen/default_text_size_medium"
                     app:layout_constraintStart_toStartOf="@id/guidelineStart"
-                    app:layout_constraintTop_toBottomOf="@id/PGText"
-                    android:id="@+id/DurationText"
-                    android:text="@string/duration"/>
+                    app:layout_constraintTop_toBottomOf="@id/releaseYearText" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/PG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{movie.isAdult()}"
                     android:textSize="@dimen/default_text_size_small"
-                    tools:text="2h 32min"
-                    android:text="@{String.valueOf(movie.detail.runtime)}"
-                    app:layout_constraintEnd_toStartOf="@id/movieLength"
-                    android:id="@+id/movieLength"
-                    android:layout_marginStart="@dimen/default_margin_xxsmall"
-                    app:layout_constraintStart_toEndOf="@id/DurationText"
-                    app:layout_constraintBottom_toBottomOf="@id/DurationText"
-                    app:layout_constraintTop_toTopOf="@id/DurationText" />
+                    app:layout_constraintBottom_toBottomOf="@id/PGText"
+                    app:layout_constraintStart_toStartOf="@id/movieLength"
+                    app:layout_constraintTop_toTopOf="@id/PGText"
+                    tools:text="PG-13" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="@dimen/default_card_view_height_medium"
-                    android:id="@+id/favouriteCard"
-                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-                    app:cardBackgroundColor="@{movie.favourite ? @color/unFavouriteCardColor : @color/FavouriteCardColor}"
-                    app:cardCornerRadius="@dimen/card_view_default_radius_small"
-                    app:layout_constraintTop_toTopOf="@id/movieDetailImage"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/DurationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin_small"
+                    android:text="@string/duration"
+                    android:textSize="@dimen/default_text_size_medium"
+                    app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@id/PGText" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/movieLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_xxsmall"
+                    android:text="@{String.valueOf(movie.detail.runtime)}"
+                    android:textSize="@dimen/default_text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/DurationText"
+                    app:layout_constraintEnd_toStartOf="@id/movieLength"
+                    app:layout_constraintStart_toEndOf="@id/DurationText"
+                    app:layout_constraintTop_toTopOf="@id/DurationText"
+                    tools:text="2h 32min" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/addFavouriteImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_empty_heart"
                     app:layout_constraintBottom_toBottomOf="@id/movieDetailImage"
-                    android:layout_height="@dimen/default_card_view_height_medium">
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-                        android:src="@drawable/ic_add_favourites"
-                        android:layout_gravity="center"
-                        app:layout_constraintTop_toTopOf="@id/movieTitle"/>
-                </androidx.cardview.widget.CardView>
+                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                    app:layout_constraintTop_toTopOf="@id/movieDetailImage" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/detailCategoryRecyclerView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin_medium"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toStartOf="@id/addFavouriteImageView"
                     app:layout_constraintStart_toStartOf="@id/guidelineStart"
                     app:layout_constraintTop_toBottomOf="@id/DurationText"
-                    app:layout_constraintEnd_toStartOf="@id/favouriteCard"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/default_margin_medium"
-                    android:id="@+id/detailCategoryRecyclerView"
-                    tools:listitem="@layout/movie_detail_category_recycler_item"/>
+                    tools:listitem="@layout/movie_detail_category_recycler_item" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/descriptionTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/guidelineStart"
-                    app:layout_constraintTop_toBottomOf="@id/detailCategoryRecyclerView"
                     android:layout_marginTop="@dimen/default_margin_xlarge"
                     android:text="@string/overview"
-                    android:id="@+id/descriptionTitle"
-                    android:textSize="@dimen/default_text_size_medium" />
+                    android:textSize="@dimen/default_text_size_medium"
+                    app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@id/detailCategoryRecyclerView" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/guidelineStart"
-                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-                    app:layout_constraintTop_toBottomOf="@id/descriptionTitle"
                     android:layout_marginTop="@dimen/default_margin_medium"
                     android:text="@{movie.detail.overview}"
+                    android:textSize="@dimen/default_text_size_small"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                    app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTitle"
                     tools:text="American car designer Carroll Shelby
              and driver Kn Miles battle corporate interference and the
-              laws of physics to build a revolutionary race car for Ford in order."
-                    android:textSize="@dimen/default_text_size_small"/>
+              laws of physics to build a revolutionary race car for Ford in order." />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
         </androidx.core.widget.NestedScrollView>

@@ -2,6 +2,7 @@ package com.malikirmizitas.movieapp.ui.movie.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -9,16 +10,15 @@ import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
 import com.malikirmizitas.movieapp.data.entity.Result
 import com.malikirmizitas.movieapp.databinding.MovieRecyclerViewItemBinding
-import com.malikirmizitas.movieapp.databinding.RecyclerViewProgressBarBinding
 
 
-class MovieAdapter(private val movieList: List<Result>) :
+class MovieAdapter(private val movieList: ArrayList<Result>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var itemClickListener: BaseRecyclerItemClickListener<Result>? = null
 
     constructor(
-        movieList: List<Result>,
+        movieList: ArrayList<Result>,
         itemClickListener: BaseRecyclerItemClickListener<Result>
     ) : this(movieList) {
         this.itemClickListener = itemClickListener
@@ -31,7 +31,6 @@ class MovieAdapter(private val movieList: List<Result>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        Log.e("ViewType:", viewType.toString())
         return if (viewType == MOVIE) {
             MovieViewHolder(
                 DataBindingUtil.inflate(
@@ -43,8 +42,7 @@ class MovieAdapter(private val movieList: List<Result>) :
             )
         } else {
             ProgressBarViewHolder(
-                DataBindingUtil.inflate(
-                    LayoutInflater.from(parent.context),
+                LayoutInflater.from(parent.context).inflate(
                     R.layout.recycler_view_progress_bar,
                     parent,
                     false
@@ -83,6 +81,5 @@ class MovieAdapter(private val movieList: List<Result>) :
         }
     }
 
-    inner class ProgressBarViewHolder(binding: RecyclerViewProgressBarBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class ProgressBarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

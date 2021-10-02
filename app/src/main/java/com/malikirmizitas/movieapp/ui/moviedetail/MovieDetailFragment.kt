@@ -1,6 +1,5 @@
 package com.malikirmizitas.movieapp.ui.moviedetail
 
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseFragment
@@ -24,7 +23,8 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
             dataBinding.movie = it
             dataBinding.executePendingBindings()
             adapter.setCategories(it.getDetail().genres)
-            dataBinding.favouriteCard.setOnClickListener { _ ->
+            initView(it)
+            dataBinding.addFavouriteImageView.setOnClickListener { _ ->
                 favouritesViewModel?.getAllFavourites(requireContext())
                 addFavourite(it)
             }
@@ -34,7 +34,6 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
     private fun addFavourite(it: MovieDetailViewStateModel) {
         var isNotInFavourites = true
         val favouriteMovies = favouritesViewModel?.allFavourites!!
-        Log.e("malin", favouriteMovies.size.toString())
         for (i in favouriteMovies) {
             if (i.secondaryId == it.getDetail().id) {
                 isNotInFavourites = false
@@ -51,6 +50,7 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
             )
             viewModel?.addFavourites(newFavouriteMovie, requireContext())
             toastShort("Successfully added in favourites")
+            dataBinding.addFavouriteImageView.setImageResource(R.drawable.ic_down_arrow)
         } else
             toastLong("This movie is already in favourite")
         it.getDetail().isInFavourite = true
@@ -58,6 +58,18 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
 
     override fun prepareView() {
         dataBinding.detailCategoryRecyclerView.adapter = adapter
+    }
+
+    private fun initView(it: MovieDetailViewStateModel) {
+        favouritesViewModel?.getAllFavourites(requireContext())
+        val favouritesMovie = favouritesViewModel?.allFavourites
+
+        for (i in favouritesMovie!!) {
+            if (i.secondaryId == it.getDetail().id) {
+                dataBinding.addFavouriteImageView.setImageResource(R.drawable.ic_full_heart)
+                break
+            }
+        }
     }
 
     override fun prepareViewModel() {

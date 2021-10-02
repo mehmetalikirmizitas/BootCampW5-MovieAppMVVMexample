@@ -12,15 +12,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/default_margin_small"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:layout_margin="@dimen/default_margin_small">
 
         <androidx.cardview.widget.CardView
-            android:layout_margin="@dimen/default_margin_xxsmall"
             android:id="@+id/movieCardView"
             android:layout_width="match_parent"
-            android:background="@drawable/all_movie_card_background"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/default_margin_xxsmall"
+            app:cardElevation="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +71,7 @@
                     android:id="@+id/movieRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_xxsmall"
                     android:gravity="center"
                     android:text="@{String.valueOf(movies.voteAverage)}"
                     android:textColor="@color/movies_vote_average_color"

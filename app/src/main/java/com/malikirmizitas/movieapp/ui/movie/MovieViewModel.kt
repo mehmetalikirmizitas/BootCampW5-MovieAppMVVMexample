@@ -17,7 +17,8 @@ class MovieViewModel : ViewModel() {
             movies.value = MovieStateModel(it)
         }
     }
-    fun getMoviesWithPagination(){
-        apiRepository.getAllMovies(lang,++page)
+
+    fun getMoviesWithPagination() {
+        apiRepository.getAllMovies(lang, ++page)
     }
 }

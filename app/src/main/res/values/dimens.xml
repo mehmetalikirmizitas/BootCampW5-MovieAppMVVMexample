@@ -31,11 +31,10 @@
     <dimen name="default_card_view_height_medium">50dp</dimen>
     <dimen name="default_card_view_height_small">40dp</dimen>
     <dimen name="default_edit_text_height">50dp</dimen>
-    <dimen name="recycler_view_item_height">72dp</dimen>
     <dimen name="default_separator_height">2dp</dimen>
     <dimen name="default_guideline_height">1dp</dimen>
     <dimen name="login_logo_height">50dp</dimen>
-    <dimen name="movie_recycler_view_card_height">300dp</dimen>
+    <dimen name="movie_recycler_view_card_height">350dp</dimen>
 
     <!-- weight -->
     <dimen name="movie_recycler_view_card_weight">180dp</dimen>

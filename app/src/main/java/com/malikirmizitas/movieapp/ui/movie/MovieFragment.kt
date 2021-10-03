@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseFragment
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
-import com.malikirmizitas.movieapp.data.entity.Result
+import com.malikirmizitas.movieapp.data.entity.MovieResult
 import com.malikirmizitas.movieapp.databinding.FragmentMovieBinding
 import com.malikirmizitas.movieapp.utils.gone
 import com.malikirmizitas.movieapp.utils.visible
@@ -17,11 +17,11 @@ class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
 
     override fun getLayoutID(): Int = R.layout.fragment_movie
 
-    private var movieList: ArrayList<Result> = arrayListOf()
+    private var movieList: ArrayList<MovieResult> = arrayListOf()
     override var viewModel: MovieViewModel? = null
     private var adapter: MovieAdapter? = null
     private var range = 0
-    private val result = Result()
+    private val result = MovieResult()
 
     override fun observeLiveData() {
         viewModel?.movies?.observe(this, {
@@ -67,8 +67,8 @@ class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
         }
         dataBinding.moviesRecyclerView.layoutManager = layoutManager
 
-        adapter = MovieAdapter(movieList, object : BaseRecyclerItemClickListener<Result> {
-            override fun onItemClicked(clickedObject: Result, id: Int) {
+        adapter = MovieAdapter(movieList, object : BaseRecyclerItemClickListener<MovieResult> {
+            override fun onItemClicked(clickedObject: MovieResult, id: Int) {
                 val bundle = bundleOf("movieId" to clickedObject.id)
                 findNavController().navigate(
                     R.id.action_tabLayoutControllerFragment_to_movieDetailFragment, bundle

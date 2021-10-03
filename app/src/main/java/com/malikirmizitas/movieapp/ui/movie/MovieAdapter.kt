@@ -7,18 +7,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
-import com.malikirmizitas.movieapp.data.entity.Result
+import com.malikirmizitas.movieapp.data.entity.MovieResult
 import com.malikirmizitas.movieapp.databinding.MovieRecyclerViewItemBinding
 
 
-class MovieAdapter(private val movieList: ArrayList<Result>) :
+class MovieAdapter(private val movieList: ArrayList<MovieResult>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var itemClickListener: BaseRecyclerItemClickListener<Result>? = null
+    private var itemClickListener: BaseRecyclerItemClickListener<MovieResult>? = null
 
     constructor(
-        movieList: ArrayList<Result>,
-        itemClickListener: BaseRecyclerItemClickListener<Result>
+        movieList: ArrayList<MovieResult>,
+        itemClickListener: BaseRecyclerItemClickListener<MovieResult>
     ) : this(movieList) {
         this.itemClickListener = itemClickListener
     }
@@ -65,14 +65,14 @@ class MovieAdapter(private val movieList: ArrayList<Result>) :
 
     inner class MovieViewHolder(private val binding: MovieRecyclerViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun x(movie: Result) {
+        fun x(movie: MovieResult) {
             binding.movies = movie
             binding.executePendingBindings()
         }
 
         fun setOnClickListener(
-            movie: Result,
-            itemClickListener: BaseRecyclerItemClickListener<Result>
+            movie: MovieResult,
+            itemClickListener: BaseRecyclerItemClickListener<MovieResult>
         ) {
             binding.root.setOnClickListener {
                 itemClickListener.onItemClicked(movie, it.id)

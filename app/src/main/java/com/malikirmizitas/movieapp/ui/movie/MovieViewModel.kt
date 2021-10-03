@@ -6,19 +6,18 @@ import com.malikirmizitas.movieapp.data.ApiRepository
 
 class MovieViewModel : ViewModel() {
 
-    private val lang = "en-US"
     private var page = 1
     val movies = MediatorLiveData<MovieStateModel>()
     private val apiRepository = ApiRepository()
 
     init {
-        apiRepository.getAllMovies(lang, page)
+        apiRepository.getAllMovies(page)
         movies.addSource(apiRepository.onMoviesFetched) {
             movies.value = MovieStateModel(it)
         }
     }
 
     fun getMoviesWithPagination() {
-        apiRepository.getAllMovies(lang, ++page)
+        apiRepository.getAllMovies(++page)
     }
 }

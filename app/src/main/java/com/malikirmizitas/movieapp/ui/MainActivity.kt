@@ -3,8 +3,6 @@ package com.malikirmizitas.movieapp.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.malikirmizitas.movieapp.databinding.ActivityMainBinding
-import com.malikirmizitas.movieapp.ui.movie.MovieFragment
-import com.malikirmizitas.movieapp.ui.tablayout.TabLayoutAdapter
 
 class MainActivity : AppCompatActivity() {
 

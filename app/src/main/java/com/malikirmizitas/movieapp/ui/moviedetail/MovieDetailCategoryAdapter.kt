@@ -41,7 +41,7 @@ class MovieDetailCategoryAdapter() :
 
     inner class CategoryViewHolder(val binding: MovieDetailCategoryRecyclerItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun init(category : Genre) {
+        fun init(category: Genre) {
             binding.category = category
         }
     }

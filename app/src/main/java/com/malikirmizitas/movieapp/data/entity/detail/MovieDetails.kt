@@ -5,7 +5,7 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "favourites")
-data class Movie(
+data class MovieDetails(
     @SerializedName("adult")
     val adult: Boolean,
     @SerializedName("backdrop_path")

@@ -52,7 +52,7 @@ class FavouritesViewHolder(private val binding: FavouriteMoviesRecyclerViewItemB
         itemClickListener: BaseRecyclerItemClickListener<MovieRoom>?
     ) {
         binding.root.setOnClickListener {
-            itemClickListener?.onItemClicked(favouriteMovie,it.id)
+            itemClickListener?.onItemClicked(favouriteMovie, it.id)
         }
     }
 }

@@ -72,6 +72,10 @@ abstract class BaseFragment<VM : ViewModel?, DB : ViewDataBinding> : Fragment(),
     abstract fun prepareViewModel()
     override fun shouldCheckInternetConnection() = true
 
+
+    /**
+     * checking network connection
+     */
     override fun networkConnection(): Boolean {
         val connectivityManager =
             context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

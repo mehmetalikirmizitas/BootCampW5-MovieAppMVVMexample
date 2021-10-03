@@ -9,4 +9,5 @@
     <string name="pg">PG:</string>
     <string name="duration">Duration(min):</string>
     <string name="remove_from_favourite">Remove From Favourite</string>
+    <string name="emptyFavouriteText">There are no movies on your favorite movie list.</string>
 </resources>

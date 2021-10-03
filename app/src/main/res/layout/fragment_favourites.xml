@@ -27,5 +27,15 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/favourite_movies_recycler_view_item" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/emptyFavouriteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/default_margin_small"
+            android:text="@string/emptyFavouriteText"
+            android:textSize="@dimen/default_text_size_medium"
+            android:visibility="gone" />
     </FrameLayout>
 </layout>

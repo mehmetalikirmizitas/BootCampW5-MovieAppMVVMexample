@@ -11,11 +11,11 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
         android:id="@+id/favouriteMoviesCard"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/favourite_movie_recycler_view_card_height"
         android:layout_marginHorizontal="@dimen/default_margin_small"
-        android:layout_marginTop="@dimen/default_margin_small"
+        android:layout_marginVertical="@dimen/default_margin_xxsmall"
         app:cardCornerRadius="@dimen/card_view_default_radius_small">
 
         <androidx.constraintlayout.widget.ConstraintLayout

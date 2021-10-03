@@ -91,7 +91,8 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
             )
             viewModel?.addFavourites(newFavouriteMovie, requireContext())
             toastShort("Successfully added in favourites")
-            dataBinding.addFavouriteImageView.setImageResource(R.drawable.ic_down_arrow)
+            dataBinding.addFavouriteImageView.setImageResource(R.drawable.ic_full_heart)
+            dataBinding.removeFavouriteButton.visible()
         } else
             toastLong("This movie is already in favourite")
         it.getDetail().isInFavourite = true

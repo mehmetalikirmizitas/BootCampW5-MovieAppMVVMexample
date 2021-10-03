@@ -36,6 +36,7 @@
     <dimen name="default_guideline_height">1dp</dimen>
     <dimen name="login_logo_height">50dp</dimen>
     <dimen name="movie_recycler_view_card_height">350dp</dimen>
+    <dimen name="favourite_movie_recycler_view_card_height">150dp</dimen>
 
     <!-- weight -->
     <dimen name="movie_recycler_view_card_weight">180dp</dimen>

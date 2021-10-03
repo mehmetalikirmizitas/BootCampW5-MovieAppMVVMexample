@@ -8,6 +8,8 @@ import com.malikirmizitas.movieapp.base.BaseFragment
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
 import com.malikirmizitas.movieapp.data.entity.MovieRoom
 import com.malikirmizitas.movieapp.databinding.FragmentFavouritesBinding
+import com.malikirmizitas.movieapp.utils.gone
+import com.malikirmizitas.movieapp.utils.visible
 
 class FavouritesFragment : BaseFragment<FavouritesMovieViewModel, FragmentFavouritesBinding>() {
 
@@ -25,6 +27,11 @@ class FavouritesFragment : BaseFragment<FavouritesMovieViewModel, FragmentFavour
     override fun prepareView() {
         viewModel?.getAllFavourites(requireContext())
         favouriteList = viewModel?.allFavourites as ArrayList<MovieRoom>
+
+        if (favouriteList.size == 0) {
+            dataBinding.emptyFavouriteText.visible()
+            dataBinding.FavouriteMoviesRecyclerView.gone()
+        }
 
         adapter = FavouritesMovieListAdapter(favouriteList,
             object : BaseRecyclerItemClickListener<MovieRoom> {

@@ -1,6 +1,8 @@
 package com.malikirmizitas.movieapp.base
 
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +39,9 @@ abstract class BaseFragment<VM : ViewModel?, DB : ViewDataBinding> : Fragment(),
         super.onViewCreated(view, savedInstanceState)
         prepareView()
         observeLiveData()
+        if (shouldCheckInternetConnection()) {
+            networkConnection()
+        }
     }
 
     override fun onAttach(context: Context) {
@@ -59,7 +64,6 @@ abstract class BaseFragment<VM : ViewModel?, DB : ViewDataBinding> : Fragment(),
             override fun <T : ViewModel> create(aClass: Class<T>): T = f() as T
         }
 
-
     override fun getStatusBarColor() = R.color.white
 
     abstract fun getLayoutID(): Int
@@ -68,5 +72,16 @@ abstract class BaseFragment<VM : ViewModel?, DB : ViewDataBinding> : Fragment(),
     abstract fun prepareViewModel()
     override fun shouldCheckInternetConnection() = true
 
+    override fun networkConnection(): Boolean {
+        val connectivityManager =
+            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            else -> false
+        }
+    }
 
 }

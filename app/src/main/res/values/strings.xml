@@ -10,4 +10,6 @@
     <string name="duration">Duration(min):</string>
     <string name="remove_from_favourite">Remove From Favourite</string>
     <string name="emptyFavouriteText">There are no movies on your favorite movie list.</string>
+    <string name="noConnectionString">Something went wrong please check your internet connection</string>
+    <string name="retry">Retry</string>
 </resources>

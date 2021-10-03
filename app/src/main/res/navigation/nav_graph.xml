@@ -31,5 +31,8 @@
         <action
             android:id="@+id/action_tabLayoutControllerFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
+        <action
+            android:id="@+id/action_tabLayoutControllerFragment_self"
+            app:destination="@id/tabLayoutControllerFragment" />
     </fragment>
 </navigation>

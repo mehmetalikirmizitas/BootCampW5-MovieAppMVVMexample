@@ -1,6 +1,5 @@
 package com.malikirmizitas.movieapp.ui.movie
 
-import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -11,6 +10,8 @@ import com.malikirmizitas.movieapp.base.BaseFragment
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
 import com.malikirmizitas.movieapp.data.entity.Result
 import com.malikirmizitas.movieapp.databinding.FragmentMovieBinding
+import com.malikirmizitas.movieapp.utils.gone
+import com.malikirmizitas.movieapp.utils.visible
 
 class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
 
@@ -35,7 +36,25 @@ class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
         })
     }
 
+    override fun networkConnection(): Boolean {
+        return super.networkConnection()
+    }
+
     override fun prepareView() {
+        if (!networkConnection()) {
+            dataBinding.noConnectionImageView.visible()
+            dataBinding.noConnectionTextView.visible()
+            dataBinding.noConnectionButton.visible()
+            dataBinding.moviesRecyclerView.gone()
+            dataBinding.noConnectionButton.setOnClickListener {
+                findNavController().navigate(R.id.action_tabLayoutControllerFragment_self)
+            }
+        } else {
+            dataBinding.noConnectionImageView.gone()
+            dataBinding.noConnectionTextView.gone()
+            dataBinding.noConnectionButton.gone()
+            dataBinding.moviesRecyclerView.visible()
+        }
 
         val layoutManager = GridLayoutManager(requireContext(), 2)
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
@@ -80,5 +99,7 @@ class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
     override fun prepareViewModel() {
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
     }
+
+    override fun shouldCheckInternetConnection() = true
 
 }

@@ -40,7 +40,17 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
         })
     }
 
+    override fun networkConnection(): Boolean {
+        return super.networkConnection()
+    }
+
     override fun prepareView() {
+
+        if (!networkConnection()) {
+            dataBinding.noConnectionImageView.visible()
+            dataBinding.noConnectionTextView.visible()
+            dataBinding.detailScreenParentLayout.gone()
+        }
         dataBinding.detailCategoryRecyclerView.adapter = adapter
     }
 
@@ -107,4 +117,6 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
 
         favouritesViewModel = ViewModelProvider(this).get(FavouritesMovieViewModel::class.java)
     }
+
+    override fun shouldCheckInternetConnection() = true
 }

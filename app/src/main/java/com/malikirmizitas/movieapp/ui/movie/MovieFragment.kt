@@ -1,5 +1,6 @@
 package com.malikirmizitas.movieapp.ui.movie
 
+import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -10,7 +11,6 @@ import com.malikirmizitas.movieapp.base.BaseFragment
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
 import com.malikirmizitas.movieapp.data.entity.Result
 import com.malikirmizitas.movieapp.databinding.FragmentMovieBinding
-import com.malikirmizitas.movieapp.ui.movie.adapter.MovieAdapter
 
 class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
 

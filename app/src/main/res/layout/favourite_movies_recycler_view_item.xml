@@ -13,6 +13,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:id="@+id/favouriteMoviesCard"
         android:layout_marginHorizontal="@dimen/default_margin_small"
         android:layout_marginTop="@dimen/default_margin_small"
         app:cardCornerRadius="@dimen/card_view_default_radius_small">
@@ -27,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_margin_xsmall"
                 android:text="@{favouriteMovie.title}"
-                android:textSize="@dimen/default_text_size_large"
+                android:textSize="@dimen/default_text_size_medium"
                 app:layout_constraintBottom_toTopOf="@id/favouriteMoviesVoteAverage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

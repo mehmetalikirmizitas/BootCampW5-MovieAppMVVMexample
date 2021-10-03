@@ -1,6 +1,5 @@
 package com.malikirmizitas.movieapp.ui.favourites
 
-import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -31,7 +30,6 @@ class FavouritesFragment : BaseFragment<FavouritesMovieViewModel, FragmentFavour
             object : BaseRecyclerItemClickListener<MovieRoom> {
                 override fun onItemClicked(clickedObject: MovieRoom, id: Int) {
                     val bundle = bundleOf("movieId" to clickedObject.secondaryId)
-                    Log.e("clicked ", clickedObject.title)
                     findNavController().navigate(
                         R.id.action_tabLayoutControllerFragment_to_movieDetailFragment, bundle
                     )

@@ -6,12 +6,14 @@ import com.malikirmizitas.movieapp.base.BaseFragment
 import com.malikirmizitas.movieapp.data.entity.MovieRoom
 import com.malikirmizitas.movieapp.databinding.FragmentMovieDetailBinding
 import com.malikirmizitas.movieapp.ui.favourites.FavouritesMovieViewModel
+import com.malikirmizitas.movieapp.utils.gone
 import com.malikirmizitas.movieapp.utils.toastLong
 import com.malikirmizitas.movieapp.utils.toastShort
+import com.malikirmizitas.movieapp.utils.visible
 
 class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDetailBinding>() {
     override var viewModel: MovieDetailViewModel? = null
-    var favouritesViewModel: FavouritesMovieViewModel? = null
+    private var favouritesViewModel: FavouritesMovieViewModel? = null
 
     private var adapter: MovieDetailCategoryAdapter = MovieDetailCategoryAdapter()
 
@@ -23,12 +25,51 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
             dataBinding.movie = it
             dataBinding.executePendingBindings()
             adapter.setCategories(it.getDetail().genres)
+
             initView(it)
+
+            dataBinding.removeFavouriteButton.setOnClickListener { _ ->
+                favouritesViewModel?.getAllFavourites(requireContext())
+                removeFavourite(it)
+            }
+
             dataBinding.addFavouriteImageView.setOnClickListener { _ ->
                 favouritesViewModel?.getAllFavourites(requireContext())
                 addFavourite(it)
             }
         })
+    }
+
+    override fun prepareView() {
+        dataBinding.detailCategoryRecyclerView.adapter = adapter
+    }
+
+    private fun initView(it: MovieDetailViewStateModel) {
+        favouritesViewModel?.getAllFavourites(requireContext())
+        val favouritesMovie = favouritesViewModel?.allFavourites
+
+        for (i in favouritesMovie!!) {
+            if (i.secondaryId == it.getDetail().id) {
+                dataBinding.addFavouriteImageView.setImageResource(R.drawable.ic_full_heart)
+                dataBinding.removeFavouriteButton.visible()
+                break
+            }
+        }
+    }
+
+
+    private fun removeFavourite(it: MovieDetailViewStateModel?) {
+        val favouriteMovie = favouritesViewModel?.allFavourites!!
+
+        for (i in favouriteMovie) {
+            if (i.secondaryId == it?.getDetail()?.id) {
+                favouritesViewModel?.deleteFavourite(i, requireContext())
+                toastShort("Movie is successfully removed from favourites")
+                dataBinding.addFavouriteImageView.setImageResource(R.drawable.ic_empty_heart)
+                dataBinding.removeFavouriteButton.gone()
+                break
+            }
+        }
     }
 
     private fun addFavourite(it: MovieDetailViewStateModel) {
@@ -56,21 +97,6 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDeta
         it.getDetail().isInFavourite = true
     }
 
-    override fun prepareView() {
-        dataBinding.detailCategoryRecyclerView.adapter = adapter
-    }
-
-    private fun initView(it: MovieDetailViewStateModel) {
-        favouritesViewModel?.getAllFavourites(requireContext())
-        val favouritesMovie = favouritesViewModel?.allFavourites
-
-        for (i in favouritesMovie!!) {
-            if (i.secondaryId == it.getDetail().id) {
-                dataBinding.addFavouriteImageView.setImageResource(R.drawable.ic_full_heart)
-                break
-            }
-        }
-    }
 
     override fun prepareViewModel() {
         viewModel = ViewModelProvider(

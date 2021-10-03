@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.malikirmizitas.movieapp.data.entity.MovieRoom
+import com.malikirmizitas.movieapp.data.entity.movies.MovieRoom
 
 @Dao
 interface FavouritesDao {

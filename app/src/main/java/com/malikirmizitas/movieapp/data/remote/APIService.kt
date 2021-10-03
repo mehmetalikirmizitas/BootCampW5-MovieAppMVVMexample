@@ -1,6 +1,6 @@
 package com.malikirmizitas.movieapp.data.remote
 
-import com.malikirmizitas.movieapp.data.entity.Movies
+import com.malikirmizitas.movieapp.data.entity.movies.MoviesResponse
 import com.malikirmizitas.movieapp.data.entity.detail.MovieDetails
 import retrofit2.Call
 import retrofit2.http.GET
@@ -13,7 +13,7 @@ interface APIService {
         @Query("api_key") apiKey : String,
         @Query("language") lang: String,
         @Query("page") page: Int
-    ): Call<Movies>
+    ): Call<MoviesResponse>
 
     @GET("{movie_id}")
     fun getMovieDetailById(

@@ -7,7 +7,7 @@
 
         <variable
             name="favouriteMovie"
-            type="com.malikirmizitas.movieapp.data.entity.MovieRoom" />
+            type="com.malikirmizitas.movieapp.data.entity.movies.MovieRoom" />
     </data>
 
     <androidx.cardview.widget.CardView

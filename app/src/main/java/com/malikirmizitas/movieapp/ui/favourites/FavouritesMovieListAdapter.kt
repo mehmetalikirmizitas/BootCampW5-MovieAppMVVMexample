@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
-import com.malikirmizitas.movieapp.data.entity.MovieRoom
+import com.malikirmizitas.movieapp.data.entity.movies.MovieRoom
 import com.malikirmizitas.movieapp.databinding.FavouriteMoviesRecyclerViewItemBinding
 
 class FavouritesMovieListAdapter(private val favouritesMoviesList: ArrayList<MovieRoom>) :

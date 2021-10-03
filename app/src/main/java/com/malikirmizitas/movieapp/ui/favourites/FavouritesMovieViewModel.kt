@@ -2,7 +2,7 @@ package com.malikirmizitas.movieapp.ui.favourites
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import com.malikirmizitas.movieapp.data.entity.MovieRoom
+import com.malikirmizitas.movieapp.data.entity.movies.MovieRoom
 import com.malikirmizitas.movieapp.data.local.RoomDB
 
 class FavouritesMovieViewModel : ViewModel() {

@@ -8,10 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseFragment
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
-import com.malikirmizitas.movieapp.data.entity.MovieResult
+import com.malikirmizitas.movieapp.data.entity.movies.MovieResult
 import com.malikirmizitas.movieapp.databinding.FragmentMovieBinding
-import com.malikirmizitas.movieapp.utils.gone
-import com.malikirmizitas.movieapp.utils.visible
 
 class MovieFragment : BaseFragment<MovieViewModel, FragmentMovieBinding>() {
 

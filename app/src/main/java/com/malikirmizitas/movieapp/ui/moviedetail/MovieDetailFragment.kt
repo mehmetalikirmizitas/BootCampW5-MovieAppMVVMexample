@@ -3,13 +3,11 @@ package com.malikirmizitas.movieapp.ui.moviedetail
 import androidx.lifecycle.ViewModelProvider
 import com.malikirmizitas.movieapp.R
 import com.malikirmizitas.movieapp.base.BaseFragment
-import com.malikirmizitas.movieapp.data.entity.MovieRoom
+import com.malikirmizitas.movieapp.data.entity.movies.MovieRoom
 import com.malikirmizitas.movieapp.databinding.FragmentMovieDetailBinding
 import com.malikirmizitas.movieapp.ui.favourites.FavouritesMovieViewModel
-import com.malikirmizitas.movieapp.utils.gone
 import com.malikirmizitas.movieapp.utils.toastLong
 import com.malikirmizitas.movieapp.utils.toastShort
-import com.malikirmizitas.movieapp.utils.visible
 
 class MovieDetailFragment : BaseFragment<MovieDetailViewModel, FragmentMovieDetailBinding>() {
     override var viewModel: MovieDetailViewModel? = null

@@ -1,9 +1,9 @@
-package com.malikirmizitas.movieapp.data.entity
+package com.malikirmizitas.movieapp.data.entity.movies
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Movies(
+data class MoviesResponse(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")

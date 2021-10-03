@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import com.malikirmizitas.movieapp.data.ApiRepository
-import com.malikirmizitas.movieapp.data.entity.MovieRoom
+import com.malikirmizitas.movieapp.data.entity.movies.MovieRoom
 import com.malikirmizitas.movieapp.data.local.RoomDB
 
 class MovieDetailViewModel(movieId: Int) : ViewModel() {

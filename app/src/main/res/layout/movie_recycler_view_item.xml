@@ -7,7 +7,7 @@
 
         <variable
             name="movies"
-            type="com.malikirmizitas.movieapp.data.entity.MovieResult" />
+            type="com.malikirmizitas.movieapp.data.entity.movies.MovieResult" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

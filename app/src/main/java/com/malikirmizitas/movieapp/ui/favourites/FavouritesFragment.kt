@@ -8,6 +8,8 @@ import com.malikirmizitas.movieapp.base.BaseFragment
 import com.malikirmizitas.movieapp.base.BaseRecyclerItemClickListener
 import com.malikirmizitas.movieapp.data.entity.movies.MovieRoom
 import com.malikirmizitas.movieapp.databinding.FragmentFavouritesBinding
+import com.malikirmizitas.movieapp.utils.gone
+import com.malikirmizitas.movieapp.utils.visible
 
 class FavouritesFragment : BaseFragment<FavouritesMovieViewModel, FragmentFavouritesBinding>() {
 

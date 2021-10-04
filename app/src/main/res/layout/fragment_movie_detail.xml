@@ -47,8 +47,8 @@
                             tools:src="@drawable/ic_launcher_background" />
 
                         <com.airbnb.lottie.LottieAnimationView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_gravity="center"
                             android:layout_marginBottom="?attr/actionBarSize"
                             app:lottie_autoPlay="true"
@@ -201,10 +201,11 @@
                         app:layout_constraintTop_toTopOf="@id/DurationText"
                         tools:text="2h 32min" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <androidx.appcompat.widget.AppCompatImageButton
                         android:id="@+id/addFavouriteImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_empty_heart"
                         app:layout_constraintBottom_toBottomOf="@id/movieDetailImage"
@@ -240,8 +241,10 @@
                         android:layout_marginTop="@dimen/default_margin_medium"
                         android:text="@{movie.detail.overview}"
                         android:textSize="@dimen/default_text_size_small"
+                        app:layout_constraintBottom_toTopOf="@id/removeFavouriteButton"
                         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
                         app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                        android:layout_marginBottom="@dimen/default_margin_medium"
                         app:layout_constraintTop_toBottomOf="@id/descriptionTitle"
                         tools:text="American car designer Carroll Shelby
              and driver Kn Miles battle corporate interference and the
